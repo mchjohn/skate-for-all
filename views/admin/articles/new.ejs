@@ -1,0 +1,62 @@
+<%- include ('../../partials/headerAdmin') %>
+
+<div class="hs">
+  <h1>Cadastro de Artigos</h1>
+  <h2>Preencha os campos para cadastrar seu artigo.</h2>
+</div>
+
+<!-- container de erros de validação -->
+
+<!-- container de erros de validação -->
+
+<div class="container-form-news">
+
+  <form action="/articles/save" method="POST" class="form_news">
+    <div class="field">
+      <label for="title">Título do Artigo</label>
+      <input type="text" name="title" id="title" placeholder="Digite aqui o título do seu artigo" value="<%= title %>" >
+      <span style="color: #EE4000; font-size: 0.9em;"><%= titleError %></span>
+    </div>
+
+    <div class="field">
+      <label for="author">Autor do Artigo</label>
+      <input type="text" name="author" id="author" placeholder="Digite  aqui o seu nome" value="<%= author %>" >
+      <span style="color: #EE4000; font-size: 0.9em;"><%= authorError %></span>
+    </div>
+
+    <div class="field">
+      <label for="body">Seu Artigo</label>
+      <textarea name="body" id="body" placeholder="Digite aqui seu artigo" value="<%= body %>" rows="5" cols="33"></textarea>
+      <span style="color: #EE4000; font-size: 0.9em;"><%= bodyError %></span>
+    </div>
+
+    <div class="field">
+      <label for="category">Selecione uma categoria para seu artigo</label>
+
+      <div class="select">
+        <select name="category" id="category" value="">
+          <% categories.forEach((category) => { %>
+            <option value="<%= category.id %>"><%= category.title %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="center-btn"><button>enviar</button></div>
+    </div>
+  </form>
+</div>
+
+<%- include ('../../partials/footer') %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+
+<script>
+  tinymce.init({
+    language: 'pt_BR',
+    selector: "#body",
+    height: "400",
+    plugins: [
+    'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+    ]
+  })
+</script>

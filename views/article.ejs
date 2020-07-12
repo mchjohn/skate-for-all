@@ -1,0 +1,27 @@
+<% if(isLogged != undefined) { %>
+  <%- include ('partials/headerAdmin') %>
+<% } else { %>
+  <%- include ('partials/header') %>
+<% } %>
+
+<div class="container-oneNews">
+  <div class="oneNews">
+    <h1 class="news_title"><%= article.title %></h1>
+    <span class="author_news">por <%= article.author %></span>
+    <div class="hr"></div>
+
+    <% var data = article.createdAt %>
+    <% var dia = data.getDate().toString() %>
+    <% var diaF = (dia.length == 1) ? '0'+dia : dia %>
+    <% var mes = (data.getMonth()+1).toString() %>
+    <% var mesF = (mes.length == 1) ? '0'+mes : mes %>
+    <% var anoF = data.getFullYear() %>
+    <span class="criation_date"><%= diaF+"/"+mesF+"/"+anoF %></span>
+
+    <p class="news">
+      <%- article.body %>
+    </p>
+  </div>
+</div>
+
+<%- include ('partials/footer') %>

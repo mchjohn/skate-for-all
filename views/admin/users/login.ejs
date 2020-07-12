@@ -1,0 +1,31 @@
+<%- include ('../../partials/header') %>
+
+<div class="hs">
+  <h1>Login de Usuário</h1>
+  <h2>Não tem uma conta? <a href="/admin/users/new" style="color: #5553c2;">clique aqui</a> e cadastre-se agora.
+    <span class="user-create"><%= registeredUser %></span>
+  </h2>
+  
+</div>
+
+<div class="container-form-news">
+
+  <form action="/authentication" method="POST" class="form_news">
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" name="email" placeholder="Digite aqui o seu email" value="" required>
+      <span style="color: #EE4000; font-size: 0.9em;"><%= unregisteredUser %></span>
+    </div>
+
+    <div class="field">
+      <label for="password">Senha</label>
+      <input type="password" name="password" placeholder="Digite aqui a sua senha" required>
+      <span style="color: #EE4000; font-size: 0.9em;"><%= incorrectPassword %></span>
+    </div>
+
+      <div class="center-btn"><button type="submit">entrar</button></div>
+    </div>
+  </form>
+</div>
+
+<%- include ('../../partials/footer') %>

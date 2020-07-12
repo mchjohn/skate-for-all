@@ -1,0 +1,42 @@
+<%- include ('partials/header') %>
+
+<section class="content">
+  <ol class="posts">
+    <% articles.forEach(article => { %>
+        <li>
+          <a href="/<%= article.slug %>">
+            <h2><%= article.title %></h2>
+            <span>por <%= article.author %></span>
+            <div class="resumo">
+              <p><%- article.body %></p>
+            </div>
+          </a>
+          <div class="date">
+            <% var data = article.createdAt %>
+                <% var dia = data.getDate().toString() %>
+                <% var diaF = (dia.length == 1) ? '0'+dia : dia %>
+                <% var mes = (data.getMonth()+1).toString() %>
+                <% var mesF = (mes.length == 1) ? '0'+mes : mes %>
+                <% var anoF = data.getFullYear() %>
+            <time><%= diaF+"/"+mesF+"/"+anoF %></time>
+            <span class="tags">
+              em
+              <a href="/category/<%= article.category.slug %>"><%= article.category.title %></a>
+            </span>
+          </div>
+          <div class="divider-post"></div>
+        </li>
+    <% }) %>
+  </ol>
+
+  <br>
+  <div class="container-pagination">
+    <div class="page-next" style="float: right;">
+      <a href="/articles/page/2" class="btn-pagination">proxima >>></a>
+    </div>
+  </div>
+  <br>
+
+</section>
+
+<%- include ('partials/footer') %>

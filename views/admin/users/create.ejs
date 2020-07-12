@@ -1,0 +1,29 @@
+<%- include ('../../partials/header') %>
+
+<div class="hs">
+  <h1>Cadastro de Usuário</h1>
+  <h2>Já tem uma conta? <a href="/login" style="color: #5553c2;">clique aqui</a> e faça login para postar um artigo.</h2>
+</div>
+
+<div class="container-form-news">
+
+  <form action="/users/new" method="POST" class="form_news">
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" name="email" placeholder="Digite aqui o seu email" required>
+      <span style="color: #EE4000; font-size: 0.9em;"><%= emailError %></span>
+      <span style="color: #EE4000; font-size: 0.9em;"><%= emailAlreadyExists %></span>
+    </div>
+
+    <div class="field">
+      <label for="password">Senha</label>
+      <input type="password" name="password" placeholder="Digite aqui a sua senha" required>
+      <span style="color: #EE4000; font-size: 0.9em;"><%= passwordError %></span>
+    </div>
+
+      <div class="center-btn"><button type="submit">cadastrar</button></div>
+    </div>
+  </form>
+</div>
+
+<%- include ('../../partials/footer') %>

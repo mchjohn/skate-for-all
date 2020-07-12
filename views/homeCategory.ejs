@@ -1,0 +1,37 @@
+<% if(isLogged != undefined) { %>
+  <%- include ('partials/headerAdmin') %>
+<% } else { %>
+  <%- include ('partials/header') %>
+<% } %>
+
+<section class="content">
+  <ol class="posts">
+    <% articles.forEach(article => { %>
+        <li>
+          <a href="/<%= article.slug %>">
+            <h2><%= article.title %></h2>
+            <span>por <%= article.author %></span>
+            <div class="resumo">
+              <p><%- article.body %></p>
+            </div>
+          </a>
+          <div class="date">
+            <% var data = article.createdAt %>
+                <% var dia = data.getDate().toString() %>
+                <% var diaF = (dia.length == 1) ? '0'+dia : dia %>
+                <% var mes = (data.getMonth()+1).toString() %>
+                <% var mesF = (mes.length == 1) ? '0'+mes : mes %>
+                <% var anoF = data.getFullYear() %>
+            <time><%= diaF+"/"+mesF+"/"+anoF %></time>
+            <span class="tags">
+              em
+                <a href="/category/<%= category.slug %>"><%= category.title %></a>
+            </span>
+          </div>
+          <div class="divider-post"></div>
+        </li>
+      <% }) %>
+  </ol>
+</section>
+
+<%- include ('partials/footer') %>
