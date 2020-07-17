@@ -11,7 +11,7 @@
 
 <div class="container-form-news">
 
-  <form action="/articles/save" method="POST" class="form_news">
+  <form action="/articles/save" method="POST" class="form_news" enctype="multipart/form-data">
     <div class="field">
       <label for="title">Título do Artigo</label>
       <input type="text" name="title" id="title" placeholder="Digite aqui o título do seu artigo" value="<%= title %>" >
@@ -40,6 +40,21 @@
           <% }) %>
         </select>
       </div>
+
+      <br>
+      <span>Carregue até 10 fotos abaixo.</span>
+      <!-- config. cloudinary -->
+      <input type="file" name="photo1" id="photo1">
+      <input type="file" name="photo2" id="photo2">
+      <input type="file" name="photo3" id="photo3">
+      <input type="file" name="photo4" id="photo4">
+      <input type="file" name="photo5" id="photo5">
+      <input type="file" name="photo6" id="photo6">
+      <input type="file" name="photo7" id="photo7">
+      <input type="file" name="photo8" id="photo8">
+      <input type="file" name="photo9" id="photo9">
+      <input type="file" name="photo10" id="photo10">
+      <!-- config. cloudinary -->
 
       <div class="center-btn"><button>enviar</button></div>
     </div>

@@ -1,2 +1,2 @@
-# skate-for-all
-versão 3.0
+# Skate Por Todos
+version 3.0.0

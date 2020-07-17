@@ -5,6 +5,10 @@ const session = require('express-session');
 const flash = require('express-flash');
 const cookieParser = require('cookie-parser');
 
+// upload cloudinary
+const fileupload = require('express-fileupload');
+const cloudinary = require('cloudinary').v2;
+
 // meus modulos
 const connection = require('./database/database');
 const categoriesController = require('./categories/CategoriesController');
@@ -41,6 +45,18 @@ app.use(session({
 
 // config. do express-flash
 app.use(flash());
+
+// config. file-upload
+app.use(fileupload({
+  useTempFiles: true
+}));
+
+// config. cloudinary
+cloudinary.config({
+  cloud_name: 'sk84all',
+  api_key: '165299385842757',
+  api_secret: 'uTW-1GgSVw6c3JrtPLdFZxzhvJg'
+});
 
 // Conexão com o banco de dados
 connection

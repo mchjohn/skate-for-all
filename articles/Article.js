@@ -21,6 +21,36 @@ const Article = connection.define('articles', {
   author: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  url1: {
+    type: Sequelize.STRING
+  },
+  url2: {
+    type: Sequelize.STRING
+  },
+  url3: {
+    type: Sequelize.STRING
+  },
+  url4: {
+    type: Sequelize.STRING
+  },
+  url5: {
+    type: Sequelize.STRING
+  },
+  url6: {
+    type: Sequelize.STRING
+  },
+  url7: {
+    type: Sequelize.STRING
+  },
+  url8: {
+    type: Sequelize.STRING
+  },
+  url9: {
+    type: Sequelize.STRING
+  },
+  url10: {
+    type: Sequelize.STRING
   }
 });
 
